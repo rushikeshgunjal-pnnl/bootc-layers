@@ -9,7 +9,7 @@ COPY docker-io.repo /etc/yum.repos.d/docker-io.repo
 RUN \
   sed -i "s^@SANDBOX_IMAGE@^${SANDBOX_IMAGE}^g" /etc/containerd/config.toml && \
   mkdir -p /etc/containerd/certs.d && \
-  dnf install -y containerd && \
+  dnf install -y containerd.io-1.7.27-3.1.el9 && \
   systemctl enable containerd && \
   mkdir -p /usr/lib/systemd/system/containerd.service.d && \
   echo '[Service]' > /usr/lib/systemd/system/containerd.service.d/10-nofile.conf && \
